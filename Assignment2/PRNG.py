@@ -3,35 +3,21 @@
 import random
 import os
 import sys
+import time
 
-# fileR = open(os.path.join(sys.path[0], "PRNG_Service.txt"), "r") 
-
-
-# input = fileR.read()
-# fileR.close
-# #if the file have run on it, generate a random number
-
-# fileW = open(os.path.join(sys.path[0], "PRNG_Service.txt"), "w") 
-# if input == "run":
-#     num = random.randint(0,9)
-#     print(num)
-#     fileW.write(str(num))
-    
-
-# fileW.close
 while(True):
-    fileR = open(os.path.join(sys.path[0], "PRNG_Service.txt"), "r") 
-    input = fileR.read()
-    fileR.close
+    file = open(os.path.join(sys.path[0], "PRNG_Service.txt"), "r+") 
+    input = file.read()
     #if the file have run on it, generate a random number
 
-    fileW = open(os.path.join(sys.path[0], "PRNG_Service.txt"), "w") 
     if input == "run":
+        file.seek(0)
+        file.truncate()
         num = random.randint(0,9)
-        print(num)
-        fileW.write(str(num))
+        file.write(str(num))
     if input == "end":
-        fileW.write("")
+        file.seek(0)
+        file.truncate()
         break
-    fileW.write("")
-    fileW.close
+    file.close
+#time.sleep(1)
