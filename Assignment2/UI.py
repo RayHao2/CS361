@@ -28,10 +28,11 @@ while(True):
         #time.sleep(5)
         fileI.close()
 
-        # time.sleep(5)
-        # fileI =open(os.path.join(sys.path[0], "image_service.txt"), "r") 
-        # print(fileI.read())
-        # fileI.close()
+        time.sleep(5)
+        fileI =open(os.path.join(sys.path[0], "image_service.txt"), "r") 
+        fileI.seek(0)
+        print(fileI.read())
+        fileI.close()
     else:
         #end image.py 
         #file.seek(0)
