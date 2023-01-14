@@ -15,17 +15,22 @@ while(True):
         fileN.seek(0)
         fileN.write("run")
         fileN.seek(0)
-        time.sleep(0.5)
+        time.sleep(5)
         imageNumber = fileN.read()
         print(imageNumber)
         fileN.close()
 
         
         #send number to image.py
+        time.sleep(1)
         fileI = open(os.path.join(sys.path[0], "image_service.txt"), "w+") 
         fileI.write(str(imageNumber))
-
+        time.sleep(5)
         fileI.close()
+
+        file = open(os.path.join(sys.path[0], "image_service.txt"), "r")
+        print(file.read())
+        file.close()
     else:
         #end image.py 
         #file.seek(0)
